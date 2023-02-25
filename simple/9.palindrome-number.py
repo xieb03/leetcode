@@ -8,7 +8,7 @@
 # 链接：https://leetcode.cn/problems/palindrome-number
 
 # noinspection PyPep8Naming,PyMethodMayBeStatic
-class Solution:
+class Solution_1:
     def isPalindrome(self, x: int) -> bool:
         if x < 0:
             return False
@@ -29,7 +29,7 @@ class Solution:
 
 
 # noinspection PyPep8Naming,PyMethodMayBeStatic,PyRedeclaration
-class Solution:
+class Solution_2:
     def isPalindrome(self, x: int) -> bool:
         if x < 0:
             return False
@@ -64,15 +64,16 @@ class Solution:
 
 
 if __name__ == '__main__':
-    solution = Solution()
-    assert solution.isPalindrome(-1) == False
-    assert solution.isPalindrome(0) == True
-    assert solution.isPalindrome(121) == True
-    assert solution.isPalindrome(123) == False
-    assert solution.isPalindrome(1001) == True
-    assert solution.isPalindrome(1023) == False
-    assert solution.isPalindrome(10201) == True
-    assert solution.isPalindrome(10202) == False
-    assert solution.isPalindrome(1023201) == True
-    assert solution.isPalindrome(1023202) == False
-    assert solution.isPalindrome(10) == False
+    for clazz in (Solution, Solution_1, Solution_2):
+        solution = clazz()
+        assert not solution.isPalindrome(-1)
+        assert solution.isPalindrome(0)
+        assert solution.isPalindrome(121)
+        assert not solution.isPalindrome(123)
+        assert solution.isPalindrome(1001)
+        assert not solution.isPalindrome(1023)
+        assert solution.isPalindrome(10201)
+        assert not solution.isPalindrome(10202)
+        assert solution.isPalindrome(1023201)
+        assert not solution.isPalindrome(1023202)
+        assert not solution.isPalindrome(10)

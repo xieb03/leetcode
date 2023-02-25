@@ -10,6 +10,7 @@
 from typing import List
 
 
+# noinspection PyPep8Naming,PyMethodMayBeStatic
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         # 保存每一个元素和其所在的位置
