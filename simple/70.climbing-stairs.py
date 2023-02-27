@@ -34,10 +34,10 @@ def matrix_2d_product_vector_1d(matrix: List[List[int]], vector: List[int]) -> L
 def matrix_2d_fast_power(matrix: List[List[int]], n: int):
     value = [[1, 0], [0, 1]]
     while n:
-        if n & 1:
+        n, remainder = divmod(n, 2)
+        if remainder == 1:
             value = matrix_2d_product_matrix_2d(value, matrix)
         matrix = matrix_2d_product_matrix_2d(matrix, matrix)
-        n = n // 2
     return value
 
 
