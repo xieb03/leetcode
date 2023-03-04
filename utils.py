@@ -1,4 +1,5 @@
-from typing import List
+# noinspection PyUnresolvedReferences
+from typing import List, Optional
 
 
 # 利用位运算判断是不是奇偶数，转化为二进制，最后一位是 1，则为奇数，否则是偶数
