@@ -1,5 +1,6 @@
 # noinspection PyUnresolvedReferences
 from typing import List, Optional
+import math
 
 
 # 利用位运算判断是不是奇偶数，转化为二进制，最后一位是 1，则为奇数，否则是偶数
@@ -118,6 +119,37 @@ def square_matrix_fast_power(matrix: List[List[int]], n: int):
     return result
 
 
+# 计算 n 的阶乘，如果已经事先知道 m 的阶乘，可以只计算 m + 1 ~ n 的阶乘，减少计算
+def factorial(n: int, m=1, default=1) -> int:
+    if n == 0:
+        return 1
+    result = 1
+    end_value = 1
+    if n > m:
+        result = default
+        end_value = m
+    while n != end_value:
+        result *= n
+        n -= 1
+    return result
+
+
+# 判断一个数是否是质数
+def is_prime(n: int):
+    if n <= 1:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+
 def main():
     assert isodd(37)
     assert not isodd(46)
@@ -135,6 +167,23 @@ def main():
     assert square_matrix_fast_power(a_matrix, 1) == a_matrix
     assert square_matrix_fast_power(a_matrix, 2) == a_matrix_2
     assert square_matrix_fast_power(a_matrix, 3) == a_matrix_3
+
+    assert [1, 2, 3, 3].count(3) == 2
+
+    factorial_24 = factorial(24)
+    assert factorial_24 % (10 ** 9 + 7) == 657629300
+    factorial_25 = factorial(25)
+    assert factorial_25 % (10 ** 9 + 7) == 440732388
+    factorial_25 = factorial(25, 24, factorial_24)
+    assert factorial_25 % (10 ** 9 + 7) == 440732388
+
+    # == 默认比较内存地址
+    assert not ListNode(1) == ListNode(1)
+    x = ListNode(1)
+    assert x == x
+
+    assert (1 << 32) == 2 ** 32
+    assert -(1 << 32) == -2 ** 32
 
 
 if __name__ == '__main__':
