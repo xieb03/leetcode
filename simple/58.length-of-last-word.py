@@ -33,7 +33,7 @@ class Solution_1:
 
 # noinspection PyPep8Naming,PyMethodMayBeStatic
 class Solution:
-    # 从头遍历，遇到空格则清零，但要记住清零前的长度，因为最后可能也是空格，把长度清空了
+    # 从尾遍历，遍历完第一个单词即可
     def lengthOfLastWord(self, s: str) -> int:
         length = 0
         index = len(s) - 1
