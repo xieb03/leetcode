@@ -185,6 +185,11 @@ def main():
     assert (1 << 32) == 2 ** 32
     assert -(1 << 32) == -2 ** 32
 
+    # TypeError: 'str' object does not support item assignment
+    # 字符串是不可变对象，不支持原位修改
+    # x = "123"
+    # x[0] = "1"
+
 
 if __name__ == '__main__':
     main()
