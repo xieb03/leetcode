@@ -190,6 +190,10 @@ def main():
     # x = "123"
     # x[0] = "1"
 
+    assert int(2.0) == 2
+    assert int(2.3) == 2
+    assert int(2.99) == 2
+
 
 if __name__ == '__main__':
     main()
